@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定位和居中问题-水平垂直居中</title>
+	<style>
+		/*这里用的是绝对定位和负margin值来使之水平垂直居中*/
+		.container {
+			height: 200px;
+			width: 400px;
+			background-color: #ccc;
+			overflow: hidden;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -200px;
+			margin-top: -100px;
+			/*transform: translate(-50%, -50%);*/
+			/*在container宽高未知的时候可以使用css3的transform属性，根据自身宽高的-50%移动，也能实现水平垂直居中，但不支持css3的浏览器上无法实现*/
+		}
+		.container>div {
+			background-color: #fc0;
+			border-radius: 50%;
+			height: 100px;
+			width: 100px;
+			position: absolute;
+		}
+		.container>div:nth-child(1) {
+			top: -50px;
+			left: -50px;
+		}
+		.container>div:nth-child(2) {
+			bottom: -50px;
+			right: -50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div></div>
+		<div></div>
+	</div>
+</body>
+</html>

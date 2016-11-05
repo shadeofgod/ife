@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三栏式布局-两边固定，中间自适应</title>
+	<style>
+		div {
+			box-sizing: border-box;
+			border: 1px solid #999;
+		}
+		.container {
+			width: 90%;
+			background-color: #eee;
+			padding: 20px;
+			float: left;
+			position: absolute;
+			left: 50%;
+			margin-left: -45%;
+		}
+		.container>div {
+			background-color: #fff;
+		}
+		.team {
+			width: 200px;
+			float: left;
+		}
+		.logo {
+			height: 80px;
+			width: 80px;
+			background-color: #eee;
+			margin-left: 20px;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		.content {
+			margin-left: 240px;
+			margin-right: 160px;
+		}
+		.person {
+			width: 120px;
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="team">
+			<div class="logo">logo</div>
+		</div>
+		<div class="person">
+			<div class="logo">logo</div>
+			<div class="logo">logo</div>
+			<div class="logo">logo</div>
+			<div class="logo">logo</div>
+		</div>
+		<div class="content">
+			<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum ullam animi, voluptatem eos corrupti aliquam, alias. Asperiores distinctio fuga ipsum, ut veritatis atque provident facere perspiciatis laboriosam impedit ab rem!</p>
+			<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus nisi in, doloremque dignissimos praesentium quae autem nostrum velit ab consequatur aliquid at quaerat corporis maiores eaque deserunt aut. Iste, et!</p>
+			<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi iure labore nemo eos, autem magnam vero vel tempore aperiam eius excepturi commodi ad, dicta provident totam eum, eaque. Debitis, illo.</p>
+		</div>
+	</div>
+</body>
+</html>
