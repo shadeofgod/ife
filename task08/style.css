@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+/*Standard settings*/
+div {
+	box-sizing: border-box;
+	text-align: center;
+	line-height: 50px;
+}
+.container {
+	width: 96%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	overflow: hidden;
+	border: 1px solid #999;
+}
+.row {
+	overflow: hidden;
+}
+.row div {
+	border: 1px solid #999;
+	background-color: #eee;
+	height: 50px;
+	margin-bottom: 10px;
+	float: left;
+}
+.col-12 {
+	width: 100%;
+}
+.col-8 {
+	width: 66.666667%;
+}
+.col-6 {
+	width: 50%;
+}
+.col-4 {
+	width: 33.33333%;
+}
+.col-3 {
+	width: 25%;
+}
+.col-2 {
+	width: 16.6666667%;
+}
+.col-1 {
+	width: 8.333333%;
+}
+
+
+
+
