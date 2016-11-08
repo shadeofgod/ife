@@ -42,7 +42,7 @@ var aqiData = [
   for (var i = 0;i < result.length - 1;i++) {
     var isSort = true;
     for (var j = 0;j < result.length - 1 - i;j++) {
-      if(result[j][1] <= result[j+1][1]) {
+      if(result[j][1] > result[j+1][1]) {
         isSort = false;
         var temp = result[j];
         result[j] = result[j+1];
