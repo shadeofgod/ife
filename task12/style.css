@@ -1,3 +1,6 @@
+table {
+	margin-bottom: 20px;
+}
 tr:nth-child(odd) {
 	background-color: #ccc;
 }
@@ -12,10 +15,83 @@ tr:nth-child(3) td,
 tr:nth-child(4) td {
 	color: red;
 }
-
 input {
+	width: 100px;
 	outline: none;
+	transition: .5s;
+	margin-bottom: 30px;
 }
 input:focus {
-	border: 1px solid red;
+	width: 200px;
 }
+.banner {
+	position: relative;
+	overflow: hidden;
+	width: 200px;
+	height: 100px;
+}
+ul {
+	height: 100px;
+	width: 600px;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	background-color: #eee;
+	list-style: none;
+	transition: .5s;
+	left: 0%;
+}
+ul>li {
+	float: left;
+	height: 100px;
+	width: 200px;
+}
+ul>li:nth-child(1) {
+	background-color: red;
+}
+ul>li:nth-child(2) {
+	background-color: blue;
+}
+ul>li:nth-child(3) {
+	background-color: green;
+}
+button, a {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #fff;
+	bottom: 6px;
+	position: absolute;
+	text-indent: -9999em;
+	cursor: pointer;
+	opacity: 0.7;
+	padding: 0;
+	border: none;
+	z-index: 99;
+}
+a {
+	bottom: 0;
+	left: 0;
+}
+button:nth-of-type(1) {
+	left: 80px;
+}
+button:nth-of-type(2) {
+	left: 100px;
+}
+button:nth-of-type(3) {
+	left: 120px;
+}
+button:nth-of-type(1):target~ul {
+	left: 0;
+}
+button:nth-of-type(2):target~ul {
+	left: -100%;
+}
+button:nth-of-type(3):target~ul {
+	left: -200%;
+}
+
+
+
+
