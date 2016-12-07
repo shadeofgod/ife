@@ -23,13 +23,17 @@ window.onload = function() {
 	//为四个按键添加点击事件，插入为第一个
 	btns[0].onclick = function() {
 		var item = createItem();
-		container.insertBefore(item, container.firstChild);
+		if (item) {
+			container.insertBefore(item, container.firstChild);
+		}
 	}
 
 	//插入为最后一个
 	btns[1].onclick = function() {
 		var item = createItem();
-		container.appendChild(item);
+		if (item) {
+			container.appendChild(item);
+		}
 	}
 
 	//弹窗并删除第一个

@@ -3,9 +3,36 @@
 <head>
 	<meta charset="UTF-8">
 	<title>任务十九：基础JavaScript练习（二）</title>
+	<style>
+		#container {
+			width: 100%;
+			position: relative;
+			display: flex;
+			align-items: flex-end;
+		}
+		#container div {
+			display: inline-block;
+			margin-bottom: 0;
+			margin-right: 2px;
+			padding: 0 4px;
+			line-height: 30px;
+			text-align: center;
+			font-size: 16px;
+			background-color: red;
+			color: #fff;
+			cursor: pointer;
+			transition: 0.1s;
+		}
+	</style>
 </head>
 <body>
-	
+	<input type="text" id="input">
+	<button>左侧入</button>
+	<button style="margin-right: 30px;">右侧入</button>
+	<button>左侧出</button>
+	<button>右侧出</button>
+	<button>bubble sort</button>
+	<div id="container"></div>	
 </body>
 <script src="task.js"></script>
 </html>
