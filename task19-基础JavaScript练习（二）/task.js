@@ -48,6 +48,10 @@ window.onload = function() {
 	}
 
 	btns[6].onclick = function() {
+		selectionSort();
+	}
+
+	btns[7].onclick = function() {
 		// swap(divs[1],divs[9]);
 		console.log(divs[2].offsetHeight)
 		console.log(divs[2].style.height)
@@ -94,10 +98,11 @@ function swap(elem1, elem2) {
 	setTimeout(function(){
 		elem1.style.backgroundColor = 'white';
 		elem2.style.backgroundColor = 'white';
-	},40)
+	},50)
 }
 
 function bubbleSort() {
+	var start = new Date().getTime();
 	var divs = container.getElementsByTagName('div');
 	var timer;
 	var len = container.children.length;
@@ -106,15 +111,46 @@ function bubbleSort() {
 	timer = setInterval(function(){
 		if (i < 1) {
 			clearInterval(timer);
-			alert('sorted!');
+			var end = new Date().getTime();
+			var time = (end - start) / 1000;
+			alert('排序完成! 一共消耗了' + time + '秒');
 		}
 		if (j === i) {
-			--i;
+			i--;
 			j = 0;
 		}
 		if (divs[j].offsetHeight > divs[j+1].offsetHeight) {
 			swap(divs[j], divs[j+1])
 		}
-		++j;
-	}, 40)
+		j++;
+	}, 50)
+}
+
+function selectionSort() {
+	var start = new Date().getTime();
+	var divs = container.getElementsByTagName('div');
+	var len = divs.length
+	var i = 0;
+	var j = 1;
+	var timer;
+	var min = 0;
+
+	timer = setInterval(function(){
+		if (i === len - 1) {
+			clearInterval(timer);
+			var end = new Date().getTime();
+			var time = (end - start) / 1000;
+			alert('排序完成! 一共消耗了' + time + '秒');
+		}
+		if (j === len) {
+			swap(divs[i], divs[min])
+			i++;
+			min = i;
+			j = i + 1;
+		}
+		if(divs[j] && divs[j].offsetHeight < divs[min].offsetHeight) {
+            min = j;
+        }
+        j++;
+	}, 50)
 }
