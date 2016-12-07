@@ -34,8 +34,23 @@ window.onload = function() {
 		alert(num);
 	}
 
+	// 插入随机数据
 	btns[4].onclick = function() {
+		for (var i = 10; i <= 100; i += 2) {
+			input.value = Math.floor(Math.random() * 90 + 10);
+			var item = createItem();
+			container.appendChild(item);
+		}
+	}
+
+	btns[5].onclick = function() {
 		bubbleSort();
+	}
+
+	btns[6].onclick = function() {
+		// swap(divs[1],divs[9]);
+		console.log(divs[2].offsetHeight)
+		console.log(divs[2].style.height)
 	}
 }
 
@@ -47,7 +62,9 @@ function createItem() {
 		} else {
 			var item = document.createElement('div');
 			item.innerHTML = input.value;
+			item.style.offsetHeight = input.value * 5;
 			item.style.height = input.value * 5 + 'px';
+			item.style.left = container.children.length * 27 + 'px';
 			input.value = "";
 			//添加点击自身则删除功能
 			item.onclick = function() {
@@ -60,18 +77,44 @@ function createItem() {
 	}
 }
 
+function swap(elem1, elem2) {
+	elem1.style.backgroundColor = 'red';
+	elem2.style.backgroundColor = 'red';
+	var temp = elem1.offsetHeight;
+	var temp2 = elem1.innerHTML;
+
+	elem1.offsetHeight = elem2.offsetHeight;
+	elem1.style.height = elem2.offsetHeight + 'px';
+	elem1.innerHTML = elem2.innerHTML;
+
+	elem2.offsetHeight = temp;
+	elem2.style.height = temp + 'px';
+	elem2.innerHTML = temp2;
+
+	setTimeout(function(){
+		elem1.style.backgroundColor = 'white';
+		elem2.style.backgroundColor = 'white';
+	},40)
+}
+
 function bubbleSort() {
 	var divs = container.getElementsByTagName('div');
-	for (var i = 0; i < divs.length; i++) {
-		divs[i].style.order = i;
-	}
-	for (var i = 0; i < divs.length - 1; i++) {
-		for (var j = 0; j < divs.length - 1 - i; j++ ) {
-			if (parseInt(divs[j].innerHTML) > parseInt(divs[j+1].innerHTML)) {
-				var temp = divs[j].style.order;
-				divs[j].style.order = divs[j+1].style.order;
-				divs[j+1].style.order = temp;
-			}
+	var timer;
+	var len = container.children.length;
+	var i = len - 1;
+	var j = 0;
+	timer = setInterval(function(){
+		if (i < 1) {
+			clearInterval(timer);
+			alert('sorted!');
 		}
-	}
+		if (j === i) {
+			--i;
+			j = 0;
+		}
+		if (divs[j].offsetHeight > divs[j+1].offsetHeight) {
+			swap(divs[j], divs[j+1])
+		}
+		++j;
+	}, 40)
 }

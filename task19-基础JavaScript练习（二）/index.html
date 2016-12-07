@@ -7,21 +7,22 @@
 		#container {
 			width: 100%;
 			position: relative;
-			display: flex;
-			align-items: flex-end;
+			height: 550px;
 		}
 		#container div {
 			display: inline-block;
 			margin-bottom: 0;
-			margin-right: 2px;
-			padding: 0 4px;
+			width: 24px;
 			line-height: 30px;
 			text-align: center;
 			font-size: 16px;
-			background-color: red;
-			color: #fff;
+			background-color: #fff;
+			color: #000;
 			cursor: pointer;
-			transition: 0.1s;
+			position: absolute;
+			bottom: 0;
+			border: 1px solid black;
+			box-sizing: border-box;
 		}
 	</style>
 </head>
@@ -31,7 +32,9 @@
 	<button style="margin-right: 30px;">右侧入</button>
 	<button>左侧出</button>
 	<button>右侧出</button>
+	<button>插入随机数据</button>
 	<button>bubble sort</button>
+	<button>test</button>
 	<div id="container"></div>	
 </body>
 <script src="task.js"></script>
