@@ -52,9 +52,9 @@ window.onload = function() {
 	}
 
 	btns[7].onclick = function() {
-		// swap(divs[1],divs[9]);
-		console.log(divs[2].offsetHeight)
-		console.log(divs[2].style.height)
+		for (var i = divs.length-1; i >=0; i--) {
+			divs[i].remove();
+		}
 	}
 }
 
