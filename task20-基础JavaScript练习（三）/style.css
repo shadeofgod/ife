@@ -1,0 +1,10 @@
+#result div {
+	float: left;
+	margin-right: 5px;
+	height: 20px;
+	padding: 3px 3px;
+	border: 1px solid #ccc;
+}
+#result span {
+	background-color: red;
+}

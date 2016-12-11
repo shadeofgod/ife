@@ -129,7 +129,7 @@ function bubbleSort() {
 function selectionSort() {
 	var start = new Date().getTime();
 	var divs = container.getElementsByTagName('div');
-	var len = divs.length
+	var len = divs.length;
 	var i = 0;
 	var j = 1;
 	var timer;
