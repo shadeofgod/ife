@@ -1,0 +1,25 @@
+div {
+    border: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+}
+.root {
+    width: 1000px;
+    height: 300px;
+    padding: 20px;
+    margin: 100px auto;
+}
+.main {
+    width: 450px;
+    height: 260px;
+    padding: 20px;
+}
+.child {
+    width: 170px;
+    height: 220px;
+    padding: 20px;
+}
+.peak {
+    width: 60px;
+    height: 200px;
+}
