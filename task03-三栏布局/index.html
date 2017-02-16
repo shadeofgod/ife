@@ -12,10 +12,14 @@
 			width: 90%;
 			background-color: #eee;
 			padding: 20px;
-			float: left;
-			position: absolute;
-			left: 50%;
-			margin-left: -45%;
+			margin: 0 auto;
+			/*overflow: hidden;*/
+		}
+		.container::after {
+			display: block;
+			content: "";
+			visibility: hidden;
+			clear: both;
 		}
 		.container>div {
 			background-color: #fff;
@@ -39,6 +43,10 @@
 		.person {
 			width: 120px;
 			float: right;
+		}
+		.clear {
+			clear: both;
+			visibility: hidden;
 		}
 	</style>
 </head>
