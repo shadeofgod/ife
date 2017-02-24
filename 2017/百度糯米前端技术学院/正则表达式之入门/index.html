@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	 	// 任务一
+		var reg = /^1[358]\d{9}$/;
+		console.log(reg.test(18812011232))
+		console.log(reg.test(18812312))
+		console.log(reg.test(12345678909))
+
+		// 目前全国有 27 种手机号段
+		// 150、151、152、153、155、156、157、158、159、130、131、132、133、134、135、136、137、138、139、180、182、185、186、187、188、189
+
+		// 任务二
+		var reg2 = /(\w+\s){2,}/g;
+		console.log(reg2.test('foo foo bar'))
+		console.log(reg2.test('foo bar foo'))
+		console.log(reg2.test('foo  barbar bar'))
+	</script>
+</body>
+</html>
