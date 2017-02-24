@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		html,body {
+			height: 100%;
+		}
+		body,div,ul,li {
+			margin: 0;
+			padding: 0;
+		}
+		h1 {
+			text-align: center;
+		}
+		#rightMenu {
+			position:absolute;
+			display: none;
+		}
+		#rightMenu ul {
+			float: left;
+			border: 1px solid #979797;
+			box-shadow:2px 2px 2px rgba(0,0,0,.6);
+			list-style: none;
+		}
+		#rightMenu ul li {
+			float: left;
+			clear: both;
+			height: 22px;
+			width: 178px;
+			line-height: 22px;
+			cursor: pointer;
+			white-space: nowrap;
+			padding: 4px 14px;
+			border: 1px solid transparent;
+			background-color: #f1f1f1;
+		}
+		#rightMenu ul li.active {
+			background-color: #f1f3f6;
+			border-radius: 3px;
+			border: 1px solid #aecff7;
+			height: 22px;
+			width: 178px;
+			line-height: 22px;
+		}
+		#rightMenu ul li.sub:after {
+			content: "";
+			display: inline-block;
+			height: 0;
+			width: 0;
+			float: right;
+			margin-top: 4px;
+			border-left: 5px solid black;
+			border-top: 5px solid transparent;
+			border-bottom: 5px solid transparent;
+			border-right: : 5px solid transparent;
+		}
+		#rightMenu ul ul {
+			position: absolute;
+			display: none;
+		}
+		.hide {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<h1>自定义多级右键菜单，请鼠标右击查看效果</h1>
+	<div id="rightMenu">
+		<ul>
+			<li>
+				<strong>learning JavaScript</strong>
+			</li>
+			<li class="sub">
+				lesson one
+				<ul>
+					<li>What is JavaScript?</li>
+					<li>History about JavaScript</li>
+					<li>Javascript Basics</li>
+				</ul>
+			</li>
+			<li class="sub">
+				lesson two
+				<ul>
+					<li>Javascript Data Structure</li>
+					<li>Equality comparisons</li>
+					<li>JavaScript objects</li>
+				</ul>
+			</li>
+			<li class="sub">
+				lesson three
+				<ul>
+					<li>Inheritance and prototype</li>
+					<li>Strict mode</li>
+					<li>JavaScript typed arrays</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+<script src="main.js"></script>
+</html>
