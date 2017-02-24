@@ -24,12 +24,12 @@ window.onload = function() {
 					}
 					// 显示鼠标所指向的二级菜单
 					oUl[0].style.display = 'block';
-
+					
 					// 位置判断
 					oUl[0].style.top = 
-						(aDoc[1] - oMenu.offsetTop - that.offsetheight  > oUl[0].offsetHeight
+						(aDoc[1] - oMenu.offsetTop - that.offsetTop  > oUl[0].offsetHeight
 							? that.offsetTop
-							: that.offsetTop - that.offsetHeight)
+							: that.offsetTop - oUl[0].offsetHeight + that.offsetHeight)
 						+ 'px';
 
 					oUl[0].style.left = 
