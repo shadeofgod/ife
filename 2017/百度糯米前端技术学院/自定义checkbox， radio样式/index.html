@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		label {
+			display: block;
+			height: 20px;
+			width: 20px;
+			background: url(1.png) no-repeat;
+		}
+		label:after {
+			display: block;
+			height: 20px;
+			width: 120px;
+			margin-left: 25px;			
+		}
+		input {
+			display: none;
+		}
+		/*radio样式*/
+		#rd1 + label {
+			background-position: -22px -8px;
+		}
+		#rd1 + label:after {
+			content: "radio goes here!";
+		}
+		#rd1:checked + label {
+			background-position: -57px -8px;
+		}
+		/*checkbox样式*/
+		#chb1 + label {
+			background-position: -22px -30px;
+		}
+		#chb1 + label:after {
+			content: "I'm a checkbox!";
+		}
+		#chb1:checked + label {
+			background-position: -57px -30px;
+		}
+	</style>
+</head>
+<body>
+	<input type="radio" name="r" id="rd1">
+	<label for="rd1"></label>	
+		
+	<input type="checkbox" name="c" id="chb1">
+	<label for="chb1"></label></body>
+</html>
