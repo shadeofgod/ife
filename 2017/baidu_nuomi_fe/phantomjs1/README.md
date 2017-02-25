@@ -1,3 +1,5 @@
+下载后可以直接命令行`phantomjs task.js`运行（当然先得装好了phantomjs）。
+
 官方文档：[http://phantomjs.org/quick-start.html](http://phantomjs.org/quick-start.html)
 另外阮一峰老师也参考官方文档写了个教程：[http://javascript.ruanyifeng.com/tool/phantomjs.html](http://javascript.ruanyifeng.com/tool/phantomjs.html)
 
