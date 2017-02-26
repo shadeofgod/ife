@@ -66,4 +66,4 @@ function searchIt(keyword) {
 	}
 }
 
-searchIt('phantomjs')
+searchIt('百度')
