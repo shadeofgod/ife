@@ -1,3 +1,4 @@
+// 第一种方法，利用defineproperty
 function Observer(data) {
     this.data = data;
     this.walk(data);
@@ -41,3 +42,22 @@ let app2 = new Observer({
     university: 'bupt',
     major: 'computer'
 });
+
+
+// 第二种方法，利用es6的proxy
+function Observer2(data) {
+    return new Proxy(data, {
+        get: function(target, key) {
+            if (key in data) {
+                console.log(`你访问了${key}属性！`);
+                return target[key];
+            } else {
+                throw new Error('key does not exist');
+            }
+        },
+        set: function(target, key, newVal) {
+            console.log(`你设置了${key}属性,新的${key}值为${newVal}`);
+            target[key] = newVal;
+        }
+    })
+}
