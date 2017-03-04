@@ -42,6 +42,11 @@ Observer.prototype.$watch = function(attr, callback) {
 
 function Event() {
     this.events = {};
+    /* 
+    this.events = {
+        'age': [callback]
+    }
+    */
 }
 
 // 订阅事件
