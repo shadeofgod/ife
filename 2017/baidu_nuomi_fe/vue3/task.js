@@ -1,22 +1,27 @@
-function Observer(data){
+function Observer(data, parent, parentKey){
     this.data = data;
+    this.parent = parent;
+    this.parentKey = parentKey;
+    this._watch = {};
     this.walk(data);
-    this.eventListen = new Event();
 }
 Observer.prototype.walk = function(data) {
     for (let key in data) {
         if (data.hasOwnProperty(key)) {
             let val = data[key];
             if (typeof val === 'object') {
-                new Observer(val);
+                new Observer(val, this, key);
             } else {
-                this.watch(key, val);
+                this.convert(key, val);
             }
         }
     }
 }
-Observer.prototype.watch = function(key, val) {
-    let that = this;
+Observer.prototype.convert = function(key, val) {
+    this.$watch(key, function(newVal) { // 为每个值设置一个监听事件
+        console.log(`你设置了 ${key}, 新的值为${newVal}`);
+    })
+    var that = this;
     Object.defineProperty(that.data, key, {
         enumerable: true,
         configurable: true,
@@ -25,40 +30,22 @@ Observer.prototype.watch = function(key, val) {
             return val;
         },
         set: function(newVal){
-            val = newVal;
-            that.eventListen.emit(key, val, newVal);
-            console.log(`你修改了${key}属性，新的值为${newVal}`);
-            if (typeof val === 'object') {
-                new Observer(val);
+            if(that.parent != null) {
+                that.parent._watch[that.parentKey](newVal)
             }
+            that._watch[key](val, newVal);
+            // console.log(`你修改了${key}属性，新的值为${newVal}`);
+            if (typeof newVal === 'object') {
+                new Observer(newVal);
+            }
+            if (newVal === val) return;
+            val = newVal;
         }
     })
 }
-Observer.prototype.$watch = function(attr, callback){
-    this.eventListen.on(attr, callback);
+Observer.prototype.$watch = function(key, callback){
+    this._watch[key] = callback;
 }
-function Event(){
-    this.events = {
-        // age: [], name: [],...
-    };
-}
-Event.prototype.on = function(attr, callback){
-    if(!this.events[attr]) {
-        this.events[attr]= [];
-    }
-    this.events[attr].push(callback);
-}
-Event.prototype.emit = function(attr, ...args){
-    if (this.events[attr]) {
-        this.events[attr].forEach((cb) => cb(...args));
-    }
-}
-Event.prototype.off = function(attr) {
-    if (attr in this.events && this.events.hasOwnProperty(attr)) {
-        delete this.events[attr];
-    }
-}
-
 
 let app2 = new Observer({
     name: {
