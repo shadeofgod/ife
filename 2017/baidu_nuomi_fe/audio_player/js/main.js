@@ -85,20 +85,14 @@
 
         return {
             init: function(id){
-                ajax({
-                    // 网易云音乐该api服务器端口支持CORS跨域资源共享，可以直接使用ajax请求获取歌单
-                    url: `http://120.24.162.247:8001/api/Music?id=${id}`,
-                    success: function(responseText){
-                        songList = JSON.parse(responseText);
-                        getMusic(songList, 0)
-                        showTime();
-                        eventsHandler();
-                    },
-                    fail: function(status){
-                        alert('歌单拉取失败！');
-                        console.error('歌单拉取失败！');
-                    }
-                });
+
+                $.getJSON(`http://120.24.162.247:8001/api/Music?id=${id}`, function(res){
+                    songList = res;
+                    getMusic(songList, 0);
+                    showTime();
+                    eventsHandler();
+                })
+
             }
         }
     })();
@@ -108,8 +102,3 @@
 
     FM.init(317921676);
 })(window, document);
-
-
-$.getJSON('http://120.24.162.247:8001/api/Music?id=317921676', function(res){
-    console.log(res[0].name)
-})
