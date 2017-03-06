@@ -10,10 +10,7 @@
     margin-right: 20px;
 }
 audio {
-    /*display: none;*/
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: none;
 }
 .list {
 
@@ -52,23 +49,33 @@ audio {
     vertical-align: middle;
     height: 24px;
     display: inline-block;
+    width: 50px;
 }
 .progress {
     width: 100%;
-    height: 1px;
-    background-color: rgb(196, 196, 196);
+    height: 5px;
     position: relative;
     overflow: hidden;
     margin-bottom: 20px;
     margin-top: 10px;
+    cursor: pointer;
 }
-.progress span {
+.progress span:nth-child(1) {
+    display: block;
+    position: absolute;
+    top: 2px;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(196, 196, 196);
+}
+.progress #progressBar {
     display: block;
     width: 100%;
     height: 1px;
+    top: 2px;
     background-color:rgb(107, 189, 122);
     position: absolute;
-    left: -50%;
+    left: -100%;
 }
 .btns a {
     margin-right: 30px;
