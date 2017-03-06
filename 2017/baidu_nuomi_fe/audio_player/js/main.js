@@ -8,8 +8,10 @@
                 nextBtn: document.getElementById('btn-next'),
                 audio: document.getElementById('audio'),
                 progressBar: document.getElementsByClassName('progress')[0],
+                time: document.getElementsByClassName('time')[0],
+
             };
-            
+
             function ajax(options){
                 let opt = options || {};
                 let xhr = new XMLHttpRequest();
@@ -28,24 +30,36 @@
                 }
             };
 
-            let playing = false,
-                like = false;
+            let liked = false;
             function eventsHandler() {
                 DOM.playBtn.onclick = function(e){
-                    playing = !playing;
-                    playing ? DOM.audio.play() : DOM.audio.pause();
-                    DOM.playBtn.firstChild.className = playing ? 'icon-2x icon-pause' : 'icon-2x icon-play';
+                    if (DOM.audio.paused) {
+                        DOM.audio.play();
+                        DOM.playBtn.firstChild.className = 'icon-2x icon-pause';
+                    } else {
+                        DOM.audio.pause();
+                        DOM.playBtn.firstChild.className = 'icon-2x icon-play';
+                    }
                 };
                 DOM.likeBtn.onclick = function(){
-                    like = !like;
+                    liked = !liked;
                     DOM.likeBtn.firstChild.style.color =
-                        like
+                        liked
                         ? 'rgba(212, 35, 35, 0.84)'
                         : 'rgba(64, 64, 64, 0.86)';
                 }
             }
 
-            eventsHandler();
+            function showTime(){
+                let totalTime = DOM.audio.duration;
+
+                let m = parseInt(totalTime / 60);
+                let s = parseInt(totalTime % 60);
+                m = m < 10 ? `0${m}` : m;
+                s = s < 10 ? `0${s}` : s;
+
+                DOM.time.innerHTML = `-${m}:${s}`;
+            }
 
             return {
                 init: function(id){
@@ -53,9 +67,11 @@
                         url: `http://120.24.162.247:8001/api/Music?id=${id}`,
                         success: function(responseText){
                             let musicInfo = JSON.parse(responseText);
-                            // $.init(musicInfo);
+                            eventsHandler();
+                            showTime();
                         },
                         fail:function(status){
+                            alert('歌单拉取失败！');
                             console.error('歌单拉取失败！');
                         }
                     });
