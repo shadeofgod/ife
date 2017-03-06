@@ -6,8 +6,7 @@
     width: 100%;
     position: relative;
 }
-.list, .player, .cover {
-    /*border: 1px solid black;*/
+.player, .cover {
     margin-right: 20px;
 }
 audio {
@@ -45,7 +44,7 @@ audio {
 }
 .time {
     font-size: 14px;
-    margin-right: 30px;
+    margin-right: 10px;
     line-height: 24px;
     vertical-align: middle;
     height: 24px;
@@ -77,9 +76,25 @@ audio {
     position: absolute;
     left: -100%;
 }
+.icon {
+    cursor: pointer;
+}
+span.volume {
+    background-color: rgb(196, 196, 196);
+    width: 0px;
+    height: 1px;
+    display: inline-block;
+    transition: 0.5s;
+    position: relative;
+    top: -3px;
+}
+#btn-volume {
+    padding-right: 5px;
+    position: relative;
+    top: 2px;
+}
 .btns .icon{
     margin: 0 20px;
-    cursor: pointer;
 }
 .btns .icon:first-child {
     margin-left: 0;
@@ -87,7 +102,7 @@ audio {
 .btns #b {
     transition: 0.3s;
 }
-.btns #btn-pause {
+.btns #btn-play {
     display: none;
 }
 #canvas {
