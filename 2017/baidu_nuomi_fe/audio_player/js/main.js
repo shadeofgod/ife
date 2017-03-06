@@ -1,6 +1,6 @@
 (function(window, document){
 
-    window.$ = (function(){
+    window.FM = (function(){
         let liked = false;
         let currentSongIndex, songList;
 
@@ -14,6 +14,7 @@
             title: document.getElementById('title'),
             author: document.getElementById('author'),
             cover: document.getElementById('cover'),
+            ifra: document.getElementById('iframe')
         };
 
         function ajax(options){
@@ -70,6 +71,7 @@
             DOM.progressBar.style.left = '-' + (timeLeft/totalTime*100)+'%';
             DOM.time.innerHTML = `${m}:${s}`;
 
+            if (timeLeft == 0) DOM.nextBtn.click();
             setTimeout(showTime, 100);
         }
 
@@ -104,5 +106,10 @@
 
 
 
-    $.init(317921676);
+    FM.init(317921676);
 })(window, document);
+
+
+$.getJSON('http://120.24.162.247:8001/api/Music?id=317921676', function(res){
+    console.log(res[0].name)
+})
