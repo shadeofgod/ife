@@ -17,7 +17,7 @@ let FM = (function(){
         title: document.getElementById('title'),
         author: document.getElementById('author'),
         cover: document.getElementById('cover'),
-        volumeSlider = document.getElementById('volume')
+        volumeSlider: document.getElementById('volume'),
     };
 
 
@@ -59,8 +59,18 @@ let FM = (function(){
             DOM.progressBar.style.left = percent + '%';
             DOM.audio.currentTime = parseInt(DOM.audio.duration * (percent/100));
         }
-        DOM.volumeSlider.onclick = function(e) {
+        DOM.volumeSlider.parentNode.onmouseover = function() {
 
+        }
+        DOM.volumeSlider.parentNode.onclick = function(e) {
+            let x = e.clientX - DOM.volumeSlider.parentNode.offsetLeft;
+            if (x >= 25) {
+                DOM.volumeSlider.firstChild.style.width = x - 25 + 'px';
+                DOM.audio.volume = (x - 25)/50;
+            } else {
+                DOM.volumeSlider.firstChild.style.width = 0;
+                DOM.audio.volume = 0;
+            }
         }
     }
 
