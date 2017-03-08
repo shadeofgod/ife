@@ -17,6 +17,7 @@ let FM = (function(){
         title: document.getElementById('title'),
         author: document.getElementById('author'),
         cover: document.getElementById('cover'),
+        volumeSlider = document.getElementById('volume')
     };
 
 
@@ -58,6 +59,9 @@ let FM = (function(){
             DOM.progressBar.style.left = percent + '%';
             DOM.audio.currentTime = parseInt(DOM.audio.duration * (percent/100));
         }
+        DOM.volumeSlider.onclick = function(e) {
+
+        }
     }
 
     function showTime(){
@@ -83,6 +87,7 @@ let FM = (function(){
     function getMusic(info, i) {
         currentSongIndex = i;
         DOM.audio.src = info[i].src;
+        DOM.audio.volume = 1.0;
         DOM.audio.autoplay = true;
         document.title = DOM.title.innerHTML = info[i].name;
         DOM.author.innerHTML = info[i].author;

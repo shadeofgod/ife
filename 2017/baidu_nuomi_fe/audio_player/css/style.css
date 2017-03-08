@@ -12,8 +12,12 @@
 audio {
     display: none;
 }
-.list {
-
+.volume-slider {
+    display: inline-block;
+    cursor: pointer;
+}
+.volume-slider:hover span#volume {
+    width: 50px;
 }
 .cover {
     height: 240px;
@@ -38,9 +42,6 @@ audio {
     line-height: 1.2;
     color: rgb(74, 74, 74);
     margin-bottom: 30px;
-}
-#btn-volume {
-
 }
 .time {
     font-size: 14px;
@@ -79,7 +80,7 @@ audio {
 .icon {
     cursor: pointer;
 }
-span.volume {
+span#volume {
     background-color: rgb(196, 196, 196);
     width: 0px;
     height: 1px;
