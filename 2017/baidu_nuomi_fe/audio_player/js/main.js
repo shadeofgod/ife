@@ -1,7 +1,6 @@
 let FM = (function(){
     let liked = true;
     let currentSongIndex, songList;
-    let cvs, audioContext, analyser, audioSrouce, frequencyData;
 
     const DOM = {
         playBtn: document.getElementById('btn-play'),
