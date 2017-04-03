@@ -1,6 +1,6 @@
 <template>
   <div class="create">
-    <el-button type="primary" size="large"><i class="el-icon-plus"></i> 新建问卷</el-button>
+    <el-button type="primary" size="large" @click="goToNew"><i class="el-icon-plus"></i> 新建问卷</el-button>
   </div>
 </template>
 
@@ -12,7 +12,12 @@ Vue.use(Icon)
 Vue.use(Button)
 
 export default {
-  name: 'createNew'
+  name: 'home',
+  methods: {
+    goToNew () {
+      this.$router.push({ path: '/new_enquire' })
+    }
+  }
 }
 </script>
 

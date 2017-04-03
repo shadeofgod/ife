@@ -1,16 +1,22 @@
-import createNew from './components/CreateNew'
+import home from './components/Home'
 import lists from './components/Lists'
+import createNew from './components/New'
 
 const routes = [
   {
     path: '/',
-    name: 'createNew',
-    component: createNew
+    name: 'home',
+    component: home
   },
   {
     path: '/lists',
-    name: lists,
+    name: 'lists',
     component: lists
+  },
+  {
+    path: '/new_enquire',
+    name: 'createNew',
+    component: createNew
   }
 ]
 
